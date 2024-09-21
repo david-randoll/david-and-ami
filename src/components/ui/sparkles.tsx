@@ -22,16 +22,11 @@ export const SparklesCore = (props: ParticlesProps) => {
     const { id, className, background, minSize, maxSize, speed, particleColor, particleDensity } = props;
     const [init, setInit] = useState(false);
     useEffect(() => {
-        const timer = setTimeout(() => {
-            initParticlesEngine(async (engine) => {
-                await loadSlim(engine);
-            }).then(() => {
-                setInit(true);
-            });
-        }, 3000); // 3 seconds delay
-
-        // Cleanup timer on component unmount
-        return () => clearTimeout(timer);
+        initParticlesEngine(async (engine) => {
+            await loadSlim(engine);
+        }).then(() => {
+            setInit(true);
+        });
     }, []);
     const controls = useAnimation();
 

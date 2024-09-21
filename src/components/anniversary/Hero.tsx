@@ -52,7 +52,7 @@ const Hero = () => {
                         background="transparent"
                         minSize={0.6}
                         maxSize={1.4}
-                        particleDensity={500}
+                        particleDensity={200}
                         className="w-full h-full"
                         particleColor="#FF69B4" // Use a bright, gold color for sparkles
                     />
