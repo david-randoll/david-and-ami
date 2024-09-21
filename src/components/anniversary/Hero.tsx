@@ -1,6 +1,29 @@
 import React from "react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { BackgroundLines } from "@/components/ui/background-lines";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { FlipWords } from "@/components/ui/flip-words";
+
+const typeWriterWords = [
+    {
+        text: "Happy",
+        className: "text-white",
+    },
+    {
+        text: "1",
+        className: "text-white",
+    },
+    {
+        text: "Year",
+        className: "text-white",
+    },
+    {
+        text: "Anniversary!",
+        className: "text-white",
+    },
+];
+
+const flipWords = ["", "My Love", "My Forever Girl", "My Whole Future"];
 
 const Hero = () => {
     return (
@@ -11,8 +34,14 @@ const Hero = () => {
 
                 <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
                     <div className="relative z-10 text-center text-white p-8 rounded-lg">
-                        <h1 className="text-5xl font-extrabold mb-4">Happy 1 Year Anniversary!</h1>
-                        <p className="text-xl">A year of love, laughter, and endless memories.</p>
+                        <div className="flex flex-col items-center justify-center">
+                            <TypewriterEffectSmooth words={typeWriterWords} />
+                            <FlipWords
+                                className="text-[#FF69B4] text-xl lg:text:3xl xl:text-5xl font-bold"
+                                words={flipWords}
+                            />
+                        </div>
+                        <p className="text-sm sm:text-xl mt-6">A year of love, laughter, and endless memories.</p>
                     </div>
                 </BackgroundLines>
 
