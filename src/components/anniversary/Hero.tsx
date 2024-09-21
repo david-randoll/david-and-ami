@@ -37,7 +37,7 @@ const Hero = () => {
                         <div className="flex flex-col items-center justify-center">
                             <TypewriterEffectSmooth words={typeWriterWords} />
                             <FlipWords
-                                className="text-[#FF69B4] text-xl lg:text:3xl xl:text-5xl font-bold"
+                                className="text-[#FF69B4] text-xl lg:text:2xl xl:text-3xl font-bold place-self-end"
                                 words={flipWords}
                             />
                         </div>
