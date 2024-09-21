@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const HelloAmisha = () => {
+const HelloPage = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
             <div className="bg-white p-10 rounded-lg shadow-lg text-center">
@@ -20,4 +20,4 @@ const HelloAmisha = () => {
     );
 };
 
-export default HelloAmisha;
+export default HelloPage;
