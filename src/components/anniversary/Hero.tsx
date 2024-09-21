@@ -1,5 +1,6 @@
 import React from "react";
-import { SparklesCore } from "../ui/sparkles";
+import { SparklesCore } from "@/components/ui/sparkles";
+import { BackgroundLines } from "@/components/ui/background-lines";
 
 const Hero = () => {
     return (
@@ -8,11 +9,12 @@ const Hero = () => {
                 {/* Dark overlay to enhance sparkles visibility */}
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-                {/* Content */}
-                <div className="relative z-10 text-center text-white p-8 rounded-lg">
-                    <h1 className="text-5xl font-extrabold mb-4">Happy 1 Year Anniversary!</h1>
-                    <p className="text-xl">A year of love, laughter, and endless memories.</p>
-                </div>
+                <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+                    <div className="relative z-10 text-center text-white p-8 rounded-lg">
+                        <h1 className="text-5xl font-extrabold mb-4">Happy 1 Year Anniversary!</h1>
+                        <p className="text-xl">A year of love, laughter, and endless memories.</p>
+                    </div>
+                </BackgroundLines>
 
                 {/* Sparkles */}
                 <div className="w-full absolute inset-0 h-screen">
