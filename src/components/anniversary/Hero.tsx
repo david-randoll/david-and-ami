@@ -25,10 +25,28 @@ const typeWriterWords = [
 
 const flipWords = ["", "My Love", "My Forever Girl", "My Entire Future"];
 
+const ScrollIndicator = () => {
+    return (
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+            <div className="animate-bounce text-white">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
+    );
+};
+
 const Hero = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-700">
-            <section className="relative flex items-center justify-center h-screen bg-cover bg-center">
+        <div className="max-h-[calc(100dvh)] bg-gradient-to-b from-gray-900 to-gray-700">
+            <section className="relative flex items-center justify-center bg-cover bg-center h-[calc(100dvh)]">
                 {/* Dark overlay to enhance sparkles visibility */}
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
@@ -46,7 +64,7 @@ const Hero = () => {
                 </BackgroundLines>
 
                 {/* Sparkles */}
-                <div className="w-full absolute inset-0 h-screen">
+                <div className="w-full absolute inset-0 h-[calc(100dvh)]">
                     <SparklesCore
                         id="tsparticlesfullpage"
                         background="transparent"
@@ -57,6 +75,8 @@ const Hero = () => {
                         particleColor="#FF69B4" // Use a bright, gold color for sparkles
                     />
                 </div>
+
+                <ScrollIndicator />
             </section>
         </div>
     );
