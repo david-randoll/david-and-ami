@@ -23,7 +23,7 @@ const typeWriterWords = [
     },
 ];
 
-const flipWords = ["", "My Love", "My Forever Girl", "My Whole Future"];
+const flipWords = ["", "My Love", "My Forever Girl", "My Entire Future"];
 
 const Hero = () => {
     return (
@@ -52,7 +52,7 @@ const Hero = () => {
                         background="transparent"
                         minSize={0.6}
                         maxSize={1.4}
-                        particleDensity={50}
+                        particleDensity={300}
                         className="w-full h-full"
                         particleColor="#FF69B4" // Use a bright, gold color for sparkles
                     />

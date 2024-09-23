@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export const InfiniteMovingImages = ({
@@ -76,9 +77,9 @@ export const InfiniteMovingImages = ({
                 )}>
                 {items.map((item, idx) => (
                     <li
-                        className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 overflow-hidden"
+                        className="w-[80px] max-w-full relative rounded-sm flex-shrink-0 overflow-hidden"
                         key={item.alt}>
-                        <img src={item.src} alt={item.alt} className="w-full h-auto object-cover" />
+                        <Image src={item.src} alt={item.alt} className="object-cover" width={500} height={500} />
                     </li>
                 ))}
             </ul>
