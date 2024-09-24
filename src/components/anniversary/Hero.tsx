@@ -62,7 +62,7 @@ const Hero = () => {
                         <div className="flex flex-col items-center justify-center">
                             <TypewriterEffectSmooth words={typeWriterWords} />
                             <FlipWords
-                                duration={2000}
+                                duration={1000}
                                 delay={3000}
                                 className="text-[#FF69B4] text-xl lg:text:2xl xl:text-3xl font-bold place-self-end"
                                 words={flipWords}
