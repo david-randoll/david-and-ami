@@ -4,7 +4,7 @@ import Image from "next/image";
 import { InfiniteMovingImages } from "@/components/ui/infinite-moving-cards";
 
 const MemoriesGallery = () => {
-    const images = Array.from({ length: 11 }, (_, index) => ({
+    const images = Array.from({ length: 61 }, (_, index) => ({
         src: `/first_anniversary/image${index + 1}.jpg`,
         alt: `Image ${index + 1}`,
     }));
