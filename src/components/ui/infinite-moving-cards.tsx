@@ -71,14 +71,12 @@ export const InfiniteMovingImages = ({
             <ul
                 ref={scrollerRef}
                 className={cn(
-                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap items-center justify-center",
                     start && "animate-scroll",
                     pauseOnHover && "hover:[animation-play-state:paused]"
                 )}>
                 {items.map((item, idx) => (
-                    <li
-                        className="w-[80px] max-w-full relative rounded-sm flex-shrink-0 overflow-hidden"
-                        key={item.alt}>
+                    <li className="w-[100px]  relative rounded-2xl flex-shrink-0 overflow-hidden" key={item.alt}>
                         <Image src={item.src} alt={item.alt} className="object-cover" width={500} height={500} />
                     </li>
                 ))}
