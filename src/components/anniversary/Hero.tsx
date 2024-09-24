@@ -23,7 +23,14 @@ const typeWriterWords = [
     },
 ];
 
-const flipWords = ["", "My Love", "My Forever Girl", "My Entire Future"];
+const flipWords = [
+    "My Love",
+    "My Forever Girl",
+    "Lilawattie Momma",
+    "Mother of my 25 kids",
+    "My Entire Future",
+    "My Everything",
+];
 
 const ScrollIndicator = () => {
     return (
@@ -55,6 +62,8 @@ const Hero = () => {
                         <div className="flex flex-col items-center justify-center">
                             <TypewriterEffectSmooth words={typeWriterWords} />
                             <FlipWords
+                                duration={2000}
+                                delay={3000}
                                 className="text-[#FF69B4] text-xl lg:text:2xl xl:text-3xl font-bold place-self-end"
                                 words={flipWords}
                             />

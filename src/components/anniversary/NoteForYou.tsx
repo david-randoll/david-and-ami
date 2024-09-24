@@ -2,7 +2,7 @@ import React from "react";
 
 const NoteForYou = () => {
     return (
-        <section className="py-20 px-6 bg-gradient-to-r from-purple-200 to-pink-300 text-center">
+        <section className="py-20 px-6 bg-gradient-to-r from-purple-50 to-pink-200 text-center">
             <h2 className="text-4xl font-bold mb-4">A Note for You</h2>
             <p className="max-w-xl mx-auto text-lg">
                 I never thought I would ever find a girlfriend, much less someone as beautiful as you. Every night, on
@@ -12,10 +12,10 @@ const NoteForYou = () => {
             </p>
             <p className="max-w-xl mx-auto text-lg my-6">
                 The love and care you have shown me over the past year have been nothing short of amazing. We fought
-                over when I can eat peanut butter. We found over the not applying for the citizenship. We found over you
-                not watching my videos to you now watching all my reals 😚. We had our ups and downs, but we always came
-                out stronger. I hope we can continue to grow together, make more memories and not let any little thing
-                come between us. I love you so much, and I can’t wait to fight more with you. 😂😜
+                over me eating peanut butter. We found over the not applying for the citizenship. We fought over you not
+                watching my videos to you now watching all my reals 😚. We had our ups and downs, but we always came out
+                stronger. I hope we can continue to grow together, make more memories and not let any little thing come
+                between us. I love you so much, and I can’t wait to fight more with you. 😂😜
             </p>
             <p className="max-w-xl mx-auto text-lg">
                 I can’t believe it’s been a year already. You’ve made every moment special, and I’m so grateful to have
