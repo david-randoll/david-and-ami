@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+const NoteForYou = () => {
     return (
         <section className="py-20 px-6 bg-gradient-to-r from-purple-200 to-pink-300 text-center">
             <h2 className="text-4xl font-bold mb-4">A Note for You</h2>
@@ -27,4 +27,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default NoteForYou;

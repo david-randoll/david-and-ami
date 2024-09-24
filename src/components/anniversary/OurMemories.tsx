@@ -16,7 +16,7 @@ function shuffle(array: Array<{ src: string; alt: string }>) {
     }
 }
 
-const MemoriesGallery = () => {
+const OurMemories = () => {
     const imagesRight = Array.from({ length: 30 }, (_, index) => ({
         src: `/first_anniversary/image${index + 1}.jpg`,
         alt: `Image ${index + 1}`,
@@ -41,4 +41,4 @@ const MemoriesGallery = () => {
     );
 };
 
-export default MemoriesGallery;
+export default OurMemories;
