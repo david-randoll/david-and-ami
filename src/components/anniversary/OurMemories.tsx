@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { InfiniteMovingImages } from "@/components/ui/infinite-moving-cards";
+import Link from "next/link";
 
 function shuffle(array: Array<{ src: string; alt: string }>) {
     let currentIndex = array.length;
@@ -36,6 +37,11 @@ const OurMemories = () => {
             <div className="h-auto rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
                 <InfiniteMovingImages items={imagesRight} direction="right" speed={`${imagesRight.length * 3}s`} />
                 <InfiniteMovingImages items={imagesLeft} direction="left" speed={`${imagesLeft.length * 3}s`} />
+            </div>
+            <div className="mt-8 text-center">
+                <Link href="/anniversary/memories" className="text-lg text-blue-600 hover:underline">
+                    View All Memories
+                </Link>
             </div>
         </section>
     );
