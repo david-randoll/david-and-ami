@@ -3,7 +3,7 @@ FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install -g yarn --force
-RUN yarn --omit=dev
+RUN yarn
 COPY . .
 RUN yarn standalone
 
