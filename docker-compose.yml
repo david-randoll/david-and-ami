@@ -1,0 +1,8 @@
+services:
+    david-and-ami:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: david-and-ami
+        ports:
+            - 11000:11000
