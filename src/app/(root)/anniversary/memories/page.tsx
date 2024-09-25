@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const MemoriesGallery = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const images = Array.from({ length: 60 }, (_, index) => `/first_anniversary/image${index + 1}.jpg`);
+    const images = Array.from({ length: 61 }, (_, index) => `/first_anniversary/image${index + 1}.jpg`);
 
     const closeModal = () => setSelectedImage(null);
 

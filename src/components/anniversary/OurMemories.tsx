@@ -23,7 +23,7 @@ const OurMemories = () => {
         alt: `Image ${index + 1}`,
     }));
 
-    const imagesLeft = Array.from({ length: 30 }, (_, index) => ({
+    const imagesLeft = Array.from({ length: 31 }, (_, index) => ({
         src: `/first_anniversary/image${index + 31}.jpg`,
         alt: `Image ${index + 31}`,
     }));
