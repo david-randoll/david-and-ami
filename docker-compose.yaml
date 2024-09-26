@@ -3,6 +3,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        network_mode: host
         container_name: david-and-ami
         ports:
             - 11000:3000
