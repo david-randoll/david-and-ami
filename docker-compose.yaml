@@ -5,4 +5,4 @@ services:
             dockerfile: Dockerfile
         container_name: david-and-ami
         ports:
-            - 11000:11000
+            - 11000:3000

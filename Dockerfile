@@ -14,5 +14,4 @@ USER node
 RUN mkdir /home/node/code && chown -R node:node /home/node/code
 WORKDIR /home/node/code
 COPY --from=0 /app/.next/standalone .
-EXPOSE 11000
 CMD [ "node", "server.js" ]

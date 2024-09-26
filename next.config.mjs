@@ -5,6 +5,9 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
     output: "standalone",
+    images: {
+        domains: ["source.unsplash.com"],
+    },
 };
 
 export default nextConfig;
