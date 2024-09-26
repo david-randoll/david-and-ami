@@ -3,7 +3,6 @@ FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install -g yarn --force
-RUN yarn config set registry "http://registry.npmjs.org"
 RUN yarn
 COPY . .
 RUN yarn standalone
