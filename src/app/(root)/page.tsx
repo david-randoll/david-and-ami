@@ -14,7 +14,7 @@ const HelloPage = () => {
                 />
                 <h1 className="text-4xl font-bold text-gray-800 mb-4">Hello Amisha, my wife</h1>
                 <p className="text-gray-600 text-lg">I'm so happy to have you in my life. You are my everything.</p>
-                <p className="text-gray-600 text-lg mt-4">I love you Bubu Phudu 😊😘</p>
+                <p className="text-gray-600 text-lg mt-4">I love you Bubu Phudu 😊😘😘</p>
             </div>
         </div>
     );
