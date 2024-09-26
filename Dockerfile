@@ -3,7 +3,7 @@ FROM node:20-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install -g yarn --force
-RUN yarn
+RUN yarn  --network-timeout 1000000
 COPY . .
 RUN yarn standalone
 
