@@ -1,19 +1,15 @@
-# Specify the base image
-FROM node:20-alpine
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g yarn --force
-RUN yarn  --network-timeout 1000000
+RUN yarn --network-timeout 100000
 COPY . .
 RUN yarn standalone
 
 FROM alpine:3.20
-RUN apk update && apk add --no-cache nodejs
-RUN addgroup -S node && adduser -S node -G node
+RUN apk add --no-cache nodejs && \
+    addgroup -S node && adduser -S node -G node
 USER node
-RUN mkdir /home/node/code && chown -R node:node /home/node/code
 WORKDIR /home/node/code
-COPY --from=0 /app/.next/standalone .
-
+COPY --from=builder /app/.next/standalone .
 EXPOSE 3000
 CMD [ "node", "server.js" ]
