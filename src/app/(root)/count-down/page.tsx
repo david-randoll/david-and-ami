@@ -5,7 +5,7 @@ import CountDownTimer from "@/components/count-down/CountDownTimer";
 
 const CountdownPage = () => {
     return (
-        <div className="flex items-center justify-center h-[calc(100dvh)] bg-gradient-to-b from-gray-900 to-gray-700">
+        <div className="flex items-center justify-center h-[calc(100dvh)] bg-gradient-to-b from-pink-900 to-gray-700">
             <div className="w-full absolute inset-0 h-[calc(100dvh)]">
                 <SparklesCore
                     id="tsparticlesfullpage"
