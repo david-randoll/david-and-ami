@@ -29,7 +29,7 @@ const CountDownTimer = () => {
     return (
         <div className="text-center text-white p-8 m-4 rounded-lg shadow-lg bg-black bg-opacity-50 overflow-hidden">
             <h1 className="text-4xl font-bold mb-6">Countdown to Our Special Day</h1>
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 justify-center">
                 {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
                     const key = label.toLowerCase() as keyof typeof timeLeft;
                     return (
