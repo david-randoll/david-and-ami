@@ -26,11 +26,7 @@ const CountDownTimer = () => {
     }, []);
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="text-center text-white p-8 rounded-lg shadow-lg bg-black bg-opacity-50">
+        <div className="text-center text-white p-8 rounded-lg shadow-lg bg-black bg-opacity-50">
             <h1 className="text-4xl font-bold mb-6">Countdown to Our Special Day</h1>
             <div className="flex space-x-6">
                 {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
@@ -49,7 +45,7 @@ const CountDownTimer = () => {
                     );
                 })}
             </div>
-        </motion.div>
+        </div>
     );
 };
 
