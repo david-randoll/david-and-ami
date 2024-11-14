@@ -28,7 +28,7 @@ const CountdownPage = () => {
     }, []);
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gradient-to-r from-purple-600 to-blue-400">
+        <div className="flex items-center justify-center h-screen max-h-[calc(100dvh)] bg-gradient-to-r from-purple-600 to-blue-400">
             <motion.div
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -36,14 +36,21 @@ const CountdownPage = () => {
                 className="text-center text-white p-8 rounded-lg shadow-lg bg-black bg-opacity-50">
                 <h1 className="text-4xl font-bold mb-6">Countdown to Our Special Day</h1>
                 <div className="flex space-x-6">
-                    {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => (
-                        <div key={label} className="text-center">
-                            <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.2 }} className="text-6xl font-bold">
-                                {timeLeft[label.toLowerCase()]}
-                            </motion.div>
-                            <p className="text-sm mt-2">{label}</p>
-                        </div>
-                    ))}
+                    {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
+                        const key = label.toLowerCase() as keyof typeof timeLeft;
+                        return (
+                            <div key={label} className="text-center">
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.5 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: index * 0.2 }}
+                                    className="text-6xl font-bold">
+                                    {timeLeft[key]}
+                                </motion.div>
+                                <p className="text-sm mt-2">{label}</p>
+                            </div>
+                        );
+                    })}
                 </div>
             </motion.div>
         </div>
