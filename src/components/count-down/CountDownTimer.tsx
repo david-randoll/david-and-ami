@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
 const CountDownTimer = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
@@ -20,24 +21,24 @@ const CountDownTimer = () => {
                     seconds: Math.floor((difference / 1000) % 60),
                 });
             }
-        }, 1000);
+        }, 50);
 
         return () => clearInterval(interval);
     }, []);
 
     return (
-        <div className="text-center text-white p-8 rounded-lg shadow-lg bg-black bg-opacity-50">
+        <div className="text-center text-white p-8 m-4 rounded-lg shadow-lg bg-black bg-opacity-50 overflow-hidden">
             <h1 className="text-4xl font-bold mb-6">Countdown to Our Special Day</h1>
             <div className="flex space-x-6">
                 {["Days", "Hours", "Minutes", "Seconds"].map((label, index) => {
                     const key = label.toLowerCase() as keyof typeof timeLeft;
                     return (
                         <div key={label} className="text-center">
-                            <motion.div 
-                                initial={{ opacity: 0, scale: 0.5 }} 
-                                animate={{ opacity: 1, scale: 1 }} 
-                                transition={{ delay: index * 0.2 }} 
-                                className="text-6xl font-bold">
+                            <motion.div
+                                initial={{ y: -50, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: index * 0.3 }} // Staggered delay for each number
+                                className="text-5xl sm:text-6xl font-bold">
                                 {timeLeft[key]}
                             </motion.div>
                             <p className="text-sm mt-2">{label}</p>
