@@ -5,7 +5,7 @@ const CountDownTimer = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const targetDate = new Date("2025-02-10T14:00:00");
+        const targetDate = new Date("2025-02-09T23:45:00");
         const interval = setInterval(() => {
             const now = new Date();
             const difference = targetDate.getTime() - now.getTime();
