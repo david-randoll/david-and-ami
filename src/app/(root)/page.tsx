@@ -1,9 +1,9 @@
 export default function Home() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-pink-200 to-blue-200 p-6 text-center">
-            <h1 className="text-5xl font-extrabold text-gray-900 drop-shadow-lg">Our Love Story</h1>
+            <h1 className="text-5xl font-extrabold text-gray-900 drop-shadow-lg">David & Ishwari's Love Story</h1>
             <p className="text-xl text-gray-700 mt-3">
-                Counting down to our first meeting & celebrating our journey together!
+                Welcome to our digital garden—a space where we share our love story, our journey, and our memories.
             </p>
 
             <div className="mt-8 flex space-x-6">
