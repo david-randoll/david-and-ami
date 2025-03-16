@@ -1,23 +1,26 @@
-import Image from "next/image";
-import React from "react";
-
-const HelloPage = () => {
+export default function Home() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-            <div className="bg-white p-10 rounded-lg shadow-lg text-center">
-                <Image
-                    src="/bubu-dudu.jpg"
-                    alt="Cute cats"
-                    className="mx-auto mb-6 w-32 h-32"
-                    width={144}
-                    height={144}
-                />
-                <h1 className="text-4xl font-bold text-gray-800 mb-4">Hello Amisha, my wife</h1>
-                <p className="text-gray-600 text-lg">I'm so happy to have you in my life. You are my everything.</p>
-                <p className="text-gray-600 text-lg mt-4">I love you Bubu Phudu 😊😘😘</p>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+            <h1 className="text-4xl font-bold text-gray-900">Welcome to Our Special Journey</h1>
+            <p className="text-lg text-gray-600 mt-2">Celebrate our love and countdown to our first meeting!</p>
+
+            <div className="mt-6 flex space-x-4">
+                <a
+                    href="/anniversary"
+                    className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition">
+                    Anniversary Page
+                </a>
+                <a
+                    href="/count-down"
+                    className="px-6 py-3 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition">
+                    Countdown Page
+                </a>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <img src="/wedding/image1.jpg" alt="Wedding Photo 1" className="rounded-lg shadow-md w-full" />
+                <img src="/wedding/image2.jpg" alt="Wedding Photo 2" className="rounded-lg shadow-md w-full" />
             </div>
         </div>
     );
-};
-
-export default HelloPage;
+}
