@@ -5,11 +5,21 @@ import { motion } from "framer-motion";
 export const CountdownPage = () => {
     const departDate = new Date("2025-05-25T22:30:00");
     const [windowSize, setWindowSize] = useState({
-        width: typeof window !== "undefined" ? window.innerWidth : 0,
-        height: typeof window !== "undefined" ? window.innerHeight : 0,
+        width: 0,
+        height: 0,
     });
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
+        // This will only execute on the client side
+        setIsClient(true);
+
+        // Set initial window size
+        setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+
         // Handle window resize
         const handleResize = () => {
             setWindowSize({
@@ -25,40 +35,53 @@ export const CountdownPage = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Initial heart positions - create a stable array that doesn't depend on window
+    const initialHeartPositions = Array.from({ length: 10 }, (_, i) => ({
+        id: i,
+        // These will be updated with real values on the client
+        x: i * 100,
+        y: 1000,
+        scale: 0.3 + i * 0.02,
+        rotate: i * 5,
+        duration: 15 + i * 0.5,
+        delay: i * 1,
+    }));
+
     return (
         <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-sky-400 to-emerald-500">
             {/* Sun */}
             <div className="absolute -top-10 sm:-top-20 right-6 sm:right-10 md:right-20 w-28 sm:w-40 h-28 sm:h-40 md:w-64 md:h-64 rounded-full bg-yellow-300 opacity-80 blur-sm"></div>
 
             <div className="absolute inset-0 overflow-hidden">
-                {/* Hearts */}
-                {[...Array(windowSize.width < 640 ? 6 : 10)].map((_, i) => (
-                    <motion.div
-                        key={`heart-${i}`}
-                        initial={{
-                            x: Math.random() * (windowSize.width || window.innerWidth),
-                            y: (windowSize.height || window.innerHeight) + 100,
-                            scale:
-                                Math.random() * (windowSize.width < 640 ? 0.2 : 0.3) +
-                                (windowSize.width < 640 ? 0.2 : 0.3),
-                            rotate: Math.random() * 30 - 15,
-                        }}
-                        animate={{
-                            y: -100,
-                            rotate: Math.random() * 60 - 30,
-                        }}
-                        transition={{
-                            duration: Math.random() * 2 + (windowSize.width < 640 ? 10 : 15),
-                            repeat: Infinity,
-                            ease: "linear",
-                            delay: Math.random() * 10,
-                        }}
-                        className="absolute text-pink-400 opacity-80">
-                        <svg width={"60"} height={"60"} viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
-                        </svg>
-                    </motion.div>
-                ))}
+                {/* Hearts - only rendered client-side */}
+                {isClient &&
+                    initialHeartPositions.slice(0, windowSize.width < 640 ? 10 : 15).map((heart) => (
+                        <motion.div
+                            key={`heart-${heart.id}`}
+                            initial={{
+                                x: Math.random() * windowSize.width,
+                                y: windowSize.height + 100,
+                                scale:
+                                    Math.random() * (windowSize.width < 640 ? 0.2 : 0.3) +
+                                    (windowSize.width < 640 ? 0.2 : 0.3),
+                                rotate: Math.random() * 30 - 15,
+                            }}
+                            animate={{
+                                y: -100,
+                                rotate: Math.random() * 60 - 30,
+                            }}
+                            transition={{
+                                duration: Math.random() * 10 + (windowSize.width < 640 ? 10 : 15),
+                                repeat: Infinity,
+                                ease: "linear",
+                                delay: Math.random() * 10,
+                            }}
+                            className="absolute text-pink-400 opacity-80">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                            </svg>
+                        </motion.div>
+                    ))}
             </div>
 
             {/* Water waves at bottom - now taller on mobile */}
@@ -85,7 +108,7 @@ export const CountdownPage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1 }}
                     className="mb-6 sm:mb-8 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-md">
+                    <h1 className="text-4xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
                         Counting Down
                     </h1>
                     <p className="text-white text-base sm:text-xl md:text-xl mt-2 opacity-90">
@@ -93,7 +116,7 @@ export const CountdownPage = () => {
                     </p>
                 </motion.div>
 
-                <CountdownTimer targetDate={departDate} windowWidth={windowSize.width} />
+                <CountdownTimer targetDate={departDate} isMobile={isClient ? windowSize.width < 640 : false} />
 
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
@@ -108,7 +131,7 @@ export const CountdownPage = () => {
     );
 };
 
-const CountdownTimer = ({ targetDate, windowWidth }: { targetDate: Date; windowWidth: number }) => {
+const CountdownTimer = ({ targetDate, isMobile }: { targetDate: Date; isMobile: boolean }) => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
@@ -160,7 +183,7 @@ const CountdownTimer = ({ targetDate, windowWidth }: { targetDate: Date; windowW
                         shadow-lg relative overflow-hidden
                     `}>
                         <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-green-400 opacity-30"></div>
-                        <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+                        <span className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white">
                             {String(item.value).padStart(2, "0")}
                         </span>
                     </div>
