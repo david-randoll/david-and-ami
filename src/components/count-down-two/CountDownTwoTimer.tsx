@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export const CountdownPage = () => {
-    const departDate = new Date("2025-05-25T22:30:00");
+    const departDate = new Date("2025-05-25T22:45:00");
     const [windowSize, setWindowSize] = useState({
         width: 0,
         height: 0,
