@@ -111,7 +111,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
     }, []);
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-4 md:grid-cols-4 gap-4 md:gap-8">
             {[
                 { label: "Days", value: timeLeft.days },
                 { label: "Hours", value: timeLeft.hours },
@@ -124,9 +124,9 @@ const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: index * 0.15, duration: 0.5 }}
                     className="flex flex-col items-center">
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 flex items-center justify-center shadow-lg relative overflow-hidden">
+                    <div className="w-14 h-14 md:w-32 md:h-32 rounded-2xl bg-white bg-opacity-20 backdrop-blur-md  flex items-center justify-center shadow-lg relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-green-400 opacity-30"></div>
-                        <span className="text-4xl md:text-5xl font-bold text-white">
+                        <span className="text-2xl md:text-5xl font-bold text-white">
                             {String(item.value).padStart(2, "0")}
                         </span>
                     </div>
