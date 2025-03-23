@@ -48,7 +48,7 @@ export const CountdownPage = () => {
     }));
 
     return (
-        <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-sky-400 to-emerald-500">
+        <div className="relative h-[calc(100dvh)] w-full overflow-hidden bg-gradient-to-b from-sky-400 to-emerald-500">
             {/* Sun */}
             <div className="absolute -top-10 sm:-top-20 right-6 sm:right-10 md:right-20 w-28 sm:w-40 h-28 sm:h-40 md:w-64 md:h-64 rounded-full bg-yellow-300 opacity-80 blur-sm"></div>
 
