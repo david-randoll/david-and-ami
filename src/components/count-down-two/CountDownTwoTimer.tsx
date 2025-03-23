@@ -10,40 +10,7 @@ export const CountdownPage = () => {
             {/* Sun */}
             <div className="absolute -top-20 right-10 md:right-20 w-40 h-40 md:w-64 md:h-64 rounded-full bg-yellow-300 opacity-80 blur-sm"></div>
 
-            {/* Animated leaves */}
             <div className="absolute inset-0 overflow-hidden">
-                {[...Array(10)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{
-                            x: Math.random() * 100,
-                            y: -50,
-                            rotate: Math.random() * 360,
-                        }}
-                        animate={{
-                            x: [
-                                Math.random() * window.innerWidth,
-                                Math.random() * window.innerWidth,
-                                Math.random() * window.innerWidth,
-                            ],
-                            y: window.innerHeight + 50,
-                            rotate: Math.random() * 360 + 360,
-                        }}
-                        transition={{
-                            duration: Math.random() * 15 + 20,
-                            repeat: Infinity,
-                            ease: "linear",
-                        }}
-                        className="absolute w-8 h-8 text-green-600 opacity-70"
-                        style={{ left: `${Math.random() * 100}%` }}>
-                        {/* Simple leaf shape */}
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.5,12C17.5,8.96,15.04,6.5,12,6.5C8.96,6.5,6.5,8.96,6.5,12H17.5Z" />
-                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" />
-                        </svg>
-                    </motion.div>
-                ))}
-
                 {/* Hearts */}
                 {[...Array(10)].map((_, i) => (
                     <motion.div
