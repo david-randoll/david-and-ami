@@ -177,8 +177,7 @@ const CountdownTimer = ({ targetDate, isMobile }: { targetDate: Date; isMobile: 
                         className={`
                         w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 
                         rounded-xl sm:rounded-2xl 
-                        bg-white bg-opacity-20 backdrop-blur-md 
-                        border border-white border-opacity-30 
+                        bg-white bg-opacity-20 backdrop-blur-md  
                         flex items-center justify-center 
                         shadow-lg relative overflow-hidden
                     `}>
