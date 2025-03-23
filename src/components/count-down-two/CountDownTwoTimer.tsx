@@ -6,41 +6,61 @@ export const CountdownPage = () => {
     const departDate = new Date("2025-05-25T16:00:00");
 
     return (
-        <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-indigo-500 via-purple-400 to-pink-400">
-            {/* Animated hearts */}
+        <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-sky-400 to-emerald-500">
+            {/* Sun */}
+            <div className="absolute -top-20 right-10 md:right-20 w-40 h-40 md:w-64 md:h-64 rounded-full bg-yellow-300 opacity-80 blur-sm"></div>
+
+            {/* Animated leaves */}
             <div className="absolute inset-0 overflow-hidden">
-                {[...Array(18)].map((_, i) => (
+                {[...Array(15)].map((_, i) => (
                     <motion.div
                         key={i}
                         initial={{
-                            x: Math.random() * window.innerWidth,
-                            y: window.innerHeight + 100,
-                            scale: Math.random() * 0.5 + 0.5,
-                            rotate: Math.random() * 30 - 15,
+                            x: Math.random() * 100,
+                            y: -50,
+                            rotate: Math.random() * 360,
                         }}
                         animate={{
-                            y: -100,
-                            rotate: Math.random() * 60 - 30,
+                            x: [
+                                Math.random() * window.innerWidth,
+                                Math.random() * window.innerWidth,
+                                Math.random() * window.innerWidth,
+                            ],
+                            y: window.innerHeight + 50,
+                            rotate: Math.random() * 360 + 360,
                         }}
                         transition={{
-                            duration: Math.random() * 20 + 15,
+                            duration: Math.random() * 15 + 20,
                             repeat: Infinity,
                             ease: "linear",
-                            delay: Math.random() * 10,
                         }}
-                        className="absolute text-white opacity-30">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                        className="absolute w-8 h-8 text-green-600 opacity-70"
+                        style={{ left: `${Math.random() * 100}%` }}>
+                        {/* Simple leaf shape */}
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.5,12C17.5,8.96,15.04,6.5,12,6.5C8.96,6.5,6.5,8.96,6.5,12H17.5Z" />
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" />
                         </svg>
                     </motion.div>
                 ))}
             </div>
 
-            {/* Subtle light rays */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-full bg-white opacity-20 blur-3xl"></div>
-                <div className="absolute top-0 left-1/4 w-1/5 h-full bg-white opacity-10 blur-3xl"></div>
-                <div className="absolute top-0 right-1/4 w-1/5 h-full bg-white opacity-10 blur-3xl"></div>
+            {/* Water waves at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32">
+                <svg className="absolute bottom-0 w-full" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        opacity=".15"
+                        fill="#0077b6"></path>
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        opacity=".3"
+                        fill="#0077b6"></path>
+                    <path
+                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                        opacity=".5"
+                        fill="#0077b6"></path>
+                </svg>
             </div>
 
             <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
@@ -48,9 +68,9 @@ export const CountdownPage = () => {
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1 }}
-                    className="mb-10 text-center">
+                    className="mb-8 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-md">Counting Down</h1>
-                    <p className="text-white text-xl md:text-2xl mt-3 opacity-90">Until We're Together Again</p>
+                    <p className="text-white text-lg md:text-xl mt-2 opacity-90">Until We're Together Again</p>
                 </motion.div>
 
                 <CountdownTimer />
@@ -99,7 +119,7 @@ const CountdownTimer = () => {
     }, []);
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {[
                 { label: "Days", value: timeLeft.days },
                 { label: "Hours", value: timeLeft.hours },
@@ -112,8 +132,8 @@ const CountdownTimer = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: index * 0.15, duration: 0.5 }}
                     className="flex flex-col items-center">
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 flex items-center justify-center shadow-lg relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-purple-500 opacity-30 group-hover:opacity-40 transition-opacity"></div>
+                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 flex items-center justify-center shadow-lg relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-green-400 opacity-30"></div>
                         <span className="text-4xl md:text-5xl font-bold text-white">
                             {String(item.value).padStart(2, "0")}
                         </span>
