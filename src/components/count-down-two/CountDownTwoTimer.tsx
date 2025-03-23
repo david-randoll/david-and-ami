@@ -3,19 +3,18 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export const CountdownPage = () => {
-    const departDate = new Date("2025-05-25T16:00:00");
+    const departDate = new Date("2025-05-25T22:30:00");
 
     return (
-        <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-sky-400 via-purple-300 to-pink-300">
+        <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-sky-400 to-emerald-500">
             {/* Sun */}
-            <div className="absolute -top-20 right-10 md:right-20 w-40 h-40 md:w-64 md:h-64 rounded-full bg-yellow-300 opacity-70 blur-sm"></div>
+            <div className="absolute -top-20 right-10 md:right-20 w-40 h-40 md:w-64 md:h-64 rounded-full bg-yellow-300 opacity-80 blur-sm"></div>
 
-            {/* Animated elements: mix of leaves and hearts */}
+            {/* Animated leaves */}
             <div className="absolute inset-0 overflow-hidden">
-                {/* Leaves */}
                 {[...Array(10)].map((_, i) => (
                     <motion.div
-                        key={`leaf-${i}`}
+                        key={i}
                         initial={{
                             x: Math.random() * 100,
                             y: -50,
@@ -35,7 +34,7 @@ export const CountdownPage = () => {
                             repeat: Infinity,
                             ease: "linear",
                         }}
-                        className="absolute w-8 h-8 text-green-600 opacity-50"
+                        className="absolute w-8 h-8 text-green-600 opacity-70"
                         style={{ left: `${Math.random() * 100}%` }}>
                         {/* Simple leaf shape */}
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -65,8 +64,8 @@ export const CountdownPage = () => {
                             ease: "linear",
                             delay: Math.random() * 10,
                         }}
-                        className="absolute text-pink-400 opacity-40">
-                        <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
+                        className="absolute text-pink-400 opacity-80">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
                         </svg>
                     </motion.div>
@@ -96,12 +95,12 @@ export const CountdownPage = () => {
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1 }}
-                    className="mb-10 text-center">
+                    className="mb-8 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-md">Counting Down</h1>
-                    <p className="text-white text-xl md:text-2xl mt-3 opacity-90">Until We're Together Again</p>
+                    <p className="text-white text-lg md:text-xl mt-2 opacity-90">Until We're Together Again</p>
                 </motion.div>
 
-                <CountdownTimer />
+                <CountdownTimer targetDate={departDate} />
 
                 <motion.div
                     initial={{ y: 20, opacity: 0 }}
@@ -116,12 +115,10 @@ export const CountdownPage = () => {
     );
 };
 
-const CountdownTimer = () => {
+const CountdownTimer = ({ targetDate }: { targetDate: Date }) => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const targetDate = new Date("2025-05-25T16:00:00");
-
         const calculateTimeLeft = () => {
             const now = new Date();
             const difference = targetDate.getTime() - now.getTime();
@@ -147,7 +144,7 @@ const CountdownTimer = () => {
     }, []);
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {[
                 { label: "Days", value: timeLeft.days },
                 { label: "Hours", value: timeLeft.hours },
@@ -160,8 +157,8 @@ const CountdownTimer = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: index * 0.15, duration: 0.5 }}
                     className="flex flex-col items-center">
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 flex items-center justify-center shadow-lg relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-purple-400 opacity-30 group-hover:opacity-40 transition-opacity"></div>
+                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 flex items-center justify-center shadow-lg relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-green-400 opacity-30"></div>
                         <span className="text-4xl md:text-5xl font-bold text-white">
                             {String(item.value).padStart(2, "0")}
                         </span>
