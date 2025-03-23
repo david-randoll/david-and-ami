@@ -1,5 +1,5 @@
 import React from "react";
-import { CountdownTwoPage } from "@/components/count-down-two/CountDownTwoTimer";
+import { CountdownPage } from "@/components/count-down-two/CountDownTwoTimer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const CountdownTwoPagePage = () => {
-    return <CountdownTwoPage />;
+    return <CountdownPage />;
 };
 
 export default CountdownTwoPagePage;
