@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export const CountdownPage = () => {
-    const departDate = new Date("2025-02-09T00:00:00");
-    const returnDate = new Date("2025-03-07T00:00:00");
+    const departDate = new Date("2025-05-25T16:00:00");
 
     return (
         <div className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-indigo-500 via-purple-400 to-pink-400">
@@ -61,8 +60,8 @@ export const CountdownPage = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8, duration: 1 }}
                     className="mt-12 bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full text-white shadow-lg">
-                    {departDate.toLocaleDateString("en-US", { month: "long", day: "numeric" })} -{" "}
-                    {returnDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                    {departDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} at{" "}
+                    {departDate.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true })}
                 </motion.div>
             </div>
         </div>
@@ -73,7 +72,7 @@ const CountdownTimer = () => {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const targetDate = new Date("2025-02-09T23:45:00");
+        const targetDate = new Date("2025-05-25T16:00:00");
 
         const calculateTimeLeft = () => {
             const now = new Date();
