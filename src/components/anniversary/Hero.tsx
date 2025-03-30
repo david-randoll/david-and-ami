@@ -25,10 +25,15 @@ const typeWriterWords = [
 
 const flipWords = [
     "My Love",
+    "My Queen",
     "My Forever Girl",
-    "Lilawattie Momma",
-    "Mother of my 25 kids",
     "My Entire Future",
+    "My Safe Haven",
+    "My Happily Ever After",
+    "My One and Only",
+    "My Dream Come True",
+    "My Angel",
+    "My Sunshine",
     "My Everything",
 ];
 
