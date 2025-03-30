@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { after } from "node:test";
 import React from "react";
 
 export interface JourneySectionItem {
@@ -21,6 +22,75 @@ export interface JourneySectionsProp {
     sections: JourneySectionItem[];
 }
 const JourneySection = ({ title, sections }: JourneySectionsProp) => {
+    const colorMap: any = {
+        pink: {
+            text: "text-pink-500",
+            bg: "bg-pink-100",
+            afterBg: "after:bg-pink-500",
+            afterText: "after:text-pink-500",
+        },
+        purple: {
+            text: "text-purple-500",
+            bg: "bg-purple-100",
+            afterBg: "after:bg-purple-500",
+            afterText: "after:text-purple-500",
+        },
+        blue: {
+            text: "text-blue-500",
+            bg: "bg-blue-100",
+            afterBg: "after:bg-blue-500",
+            afterText: "after:text-blue-500",
+        },
+        teal: {
+            text: "text-teal-500",
+            bg: "bg-teal-100",
+            afterBg: "after:bg-teal-500",
+            afterText: "after:text-teal-500",
+        },
+        orange: {
+            text: "text-orange-500",
+            bg: "bg-orange-100",
+            afterBg: "after:bg-orange-500",
+            afterText: "after:text-orange-500",
+        },
+        green: {
+            text: "text-green-500",
+            bg: "bg-green-100",
+            afterBg: "after:bg-green-500",
+            afterText: "after:text-green-500",
+        },
+        red: {
+            text: "text-red-500",
+            bg: "bg-red-100",
+            afterBg: "after:bg-red-500",
+            afterText: "after:text-red-500",
+        },
+        yellow: {
+            text: "text-yellow-500",
+            bg: "bg-yellow-100",
+            afterBg: "after:bg-yellow-500",
+            afterText: "after:text-yellow-500",
+        },
+        gray: {
+            text: "text-gray-500",
+            bg: "bg-gray-100",
+            afterBg: "after:bg-gray-500",
+            afterText: "after:text-gray-500",
+        },
+        black: {
+            text: "text-black",
+            bg: "bg-gray-100",
+            afterBg: "after:bg-black",
+            afterText: "after:text-black",
+        },
+        white: {
+            text: "text-white",
+            bg: "bg-gray-100",
+            afterBg: "after:bg-white",
+            afterText: "after:text-white",
+        },
+    };
+
     return (
         <div id="journey" className="pt-24 pb-32">
             <div className="container mx-auto px-4">
@@ -58,7 +128,7 @@ const JourneySection = ({ title, sections }: JourneySectionsProp) => {
                                     )}
                                 </div>
                                 <div className="text-center mt-4">
-                                    <span className={`text-${section.accentColor}-500 font-medium`}>
+                                    <span className={`${colorMap[section.accentColor].text} font-medium`}>
                                         {section.date}
                                     </span>
                                 </div>
@@ -69,7 +139,7 @@ const JourneySection = ({ title, sections }: JourneySectionsProp) => {
                                 className={`lg:col-span-4 flex flex-col justify-center mb-10 ${
                                     section.reverseLayout ? "order-2 lg:order-1 lg:col-start-2" : ""
                                 }`}>
-                                <span className={`text-${section.accentColor}-500 font-medium mb-3`}>
+                                <span className={`${colorMap[section.accentColor].text} font-medium mb-3`}>
                                     {`${String(index + 1).padStart(2, "0")} / ${section.type}`}
                                 </span>
                                 <h3 className="text-3xl font-bold mb-6">{section.title}</h3>
@@ -79,7 +149,9 @@ const JourneySection = ({ title, sections }: JourneySectionsProp) => {
                                     target="_blank"
                                     className="group flex items-center text-lg font-medium">
                                     <span
-                                        className={`mr-4 relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-${section.accentColor}-500 group-hover:after:w-full after:transition-all after:duration-300`}>
+                                        className={`mr-4 relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 ${
+                                            colorMap[section.accentColor].afterBg
+                                        } group-hover:after:w-full after:transition-all after:duration-300`}>
                                         {section.linkText}
                                     </span>
                                     <svg
