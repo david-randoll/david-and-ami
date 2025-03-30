@@ -15,7 +15,6 @@ const journeyConfig = {
             linkUrl: "/anniversary",
             imageSrc: "/wedding/image1.jpg",
             accentColor: "pink",
-            reverseLayout: false,
         },
         {
             id: "first-countdown",
@@ -28,7 +27,6 @@ const journeyConfig = {
             linkUrl: "/count-down",
             imageSrc: "/wedding/image2.jpg",
             accentColor: "purple",
-            reverseLayout: true,
         },
         {
             id: "wedding-video",
@@ -41,7 +39,6 @@ const journeyConfig = {
             linkUrl: "/ceremony",
             imageSrc: "",
             accentColor: "teal",
-            reverseLayout: false,
             isYouTube: true,
             youtubeEmbedId: "v0gs1FfCZtA?si=kemVME4ovaDfUlUt",
         },
@@ -56,15 +53,19 @@ const journeyConfig = {
             linkUrl: "/count-down-two",
             imageSrc: "/wedding/image1.jpg",
             accentColor: "blue",
-            reverseLayout: true,
         },
     ],
 };
 
 const JourneySections = () => {
     return (
-        <div>
-            <JourneySection title={journeyConfig.title} sections={journeyConfig.sections} />
+        <div id="journey" className="pt-24 pb-32">
+            <div className="container mx-auto px-4">
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-24">{journeyConfig.title}</h2>
+                {journeyConfig.sections.map((section, index) => (
+                    <JourneySection key={section.id} section={section} index={index} />
+                ))}
+            </div>
         </div>
     );
 };
