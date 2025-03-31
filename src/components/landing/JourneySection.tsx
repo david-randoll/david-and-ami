@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { FaArrowRight } from "react-icons/fa6";
 
 export interface JourneySectionItem {
     id: string;
@@ -143,15 +144,7 @@ const JourneySection = ({ section, index }: JourneySectionsProp) => {
                             className={`mr-4 relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 ${afterBgColorClass} group-hover:after:w-full after:transition-all after:duration-300`}>
                             {section.linkText}
                         </span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M4.16666 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
+                        <FaArrowRight />
                     </a>
                 </div>
             </div>
