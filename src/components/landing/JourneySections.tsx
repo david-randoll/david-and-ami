@@ -25,7 +25,7 @@ const journeyConfig = {
                 "Every second brings us closer to our next embrace. Follow our countdown as we eagerly await the moment we're together again.",
             linkText: "View Countdown",
             linkUrl: "/count-down",
-            imageSrc: "/wedding/image2.jpg",
+            imageSrc: "/wedding/image5.jpg",
             accentColor: "purple",
         },
         {
@@ -51,7 +51,7 @@ const journeyConfig = {
                 "The anticipation builds as we count down to our second meeting. Each day brings new excitement as we prepare to create more beautiful memories together.",
             linkText: "Second Countdown",
             linkUrl: "/count-down-two",
-            imageSrc: "/wedding/image1.jpg",
+            imageSrc: "/wedding/image3.jpg",
             accentColor: "blue",
         },
     ],
